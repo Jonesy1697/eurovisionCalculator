@@ -42,14 +42,14 @@ public class SwingForm {
     /**
      * Create the application.
      */
-    public SwingForm() {
+    public SwingForm() throws SQLException {
         initialize();
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize() throws SQLException {
         
         host = "jdbc:mysql://localhost/eurovisioncalc";
         uName = "root";
@@ -89,8 +89,21 @@ public class SwingForm {
             pointsFields[i - 1] = newPointsField;
         }
 
-        for (int i = 1; i <= 24; i++) {
-
+        Statement stmt = con.createStatement();
+        String SQL = "SELECT * FROM `country` WHERE `final` = 1 ORDER BY `points` DESC;";
+        ResultSet rs = stmt.executeQuery(SQL);
+        
+        int count = 0;
+        
+        while (rs.next()){
+            String country = rs.getString("country");
+            int points = rs.getInt("points");
+            
+            countryFields[count].setText(country);
+            pointsFields[count].setText(String.valueOf(points));
+            
+            count++;
+            
         }
 
     }
