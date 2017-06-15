@@ -68,6 +68,7 @@ public class SwingForm {
         frame.getContentPane().setLayout(null);
 
         for (int i = 1; i <= 24; i++) {
+                        
             JLabel newJLabel = new JLabel(String.valueOf(i));
             newJLabel.setBounds(65, i * 26, 46, 14);
             frame.getContentPane().add(newJLabel);
