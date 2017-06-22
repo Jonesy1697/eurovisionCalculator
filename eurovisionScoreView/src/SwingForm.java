@@ -77,7 +77,6 @@ public class SwingForm {
             newCountryField.setBounds(100, i * 25, 125, 20);
             frame.getContentPane().add(newCountryField);
             newCountryField.setColumns(10);
-            newCountryField.enable(false);
 
             countryFields[i - 1] = newCountryField;
 
@@ -85,7 +84,6 @@ public class SwingForm {
             newPointsField.setBounds(230, i * 25, 50, 20);
             frame.getContentPane().add(newPointsField);
             newPointsField.setColumns(10);
-            newPointsField.enable(false);
 
             pointsFields[i - 1] = newPointsField;
         }
