@@ -25,163 +25,166 @@ $result = mysqli_query($conn, $sql);
 	</head>
 	
 	<body>
+		<main>		
+		
 		<h1>Score countries</h1>
 		
-		<form id="form1" name="form1" method="get" action="updateDB.php">
-		
-			<p>12 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<br><br>
+			<form id="form1" name="form1" method="get" action="updateDB.php">
 			
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<p>10 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<br><br>
+				<p>12 Points</p>
 			
-			<p>8 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<br><br>
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
 			
-			<p>7 Points</p>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<br><br>
+				<br><br>
+				
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
 			
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
+				<p>10 Points</p>
 			
-			<p>6 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<br><br>
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
 			
-			<p>5 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
 			
-			<br><br>
+				<br><br>
+				
+				<p>8 Points</p>
 			
-			<p>4 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<br><br>
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
 			
-			<p>3 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
-		
-			<br><br>
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
 			
-			<p>2 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<br><br>
+				<br><br>
+				
+				<p>7 Points</p>
 			
-			<?php
-			$sql = "SELECT country FROM country WHERE final = 1";
-			$result = mysqli_query($conn, $sql); 
-			?>
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
 			
-			<p>1 Points</p>
-		
-			<select name = "select[ ]">
-				<?php while($row1 = mysqli_fetch_array($result)):;?>
-				<option> <?php echo $row1[0];?></option>
-				<?php endwhile?>
-			</select>
-		
-			<br><br>
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
 			
-			<input id = "button1" type = "submit" value = "Submit"/>	
-	
-		</form>
+				<br><br>
+				
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+				
+				<p>6 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+			
+				<br><br>
+				
+				<p>5 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+				
+				<br><br>
+				
+				<p>4 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+			
+				<br><br>
+				
+				<p>3 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+			
+				<br><br>
+				
+				<p>2 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<br><br>
+				
+				<?php
+				$sql = "SELECT country FROM country WHERE final = 1";
+				$result = mysqli_query($conn, $sql); 
+				?>
+				
+				<p>1 Points</p>
+			
+				<select name = "select[ ]">
+					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<option> <?php echo $row1[0];?></option>
+					<?php endwhile?>
+				</select>
+			
+				<br><br>
+				
+				<input id = "button1" type = "submit" value = "Submit"/>	
+		
+			</form>
+		</main>
 		
 	</body>
 	
