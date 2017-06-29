@@ -19,16 +19,23 @@ $result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Eurovision scorer</title>
+
+<head>
+	
+	<title>Eurovision scorer</title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
+
+<html>
+		
+	<header>
+		<h1>Score countries</h1>
+	</header>	
 	
 	<body>
+	
 		<main>		
-		
-		<h1>Score countries</h1>
-		
+				
 			<form id="form1" name="form1" method="get" action="updateDB.php">
 			
 				<p>12 Points</p>
