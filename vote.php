@@ -215,32 +215,8 @@
 <?php
 	}elseif ($password === $pass and $voted == 1){
 		
-?>
-<!DOCTYPE html>
-<head>
-	
-	<title>Eurovision scorer</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-
-<html>
+		header("Location: http://localhost/eurovisionCalc/alreadyVoted.html");
 		
-	<header>
-		<h1>Score countries</h1>
-	</header>	
-	
-	<body>
-		<main style = "text-align: center;">		
-			<p>You have already voted</p>
-			<form action="index.html">
-				<input type="submit" value="Back" />
-			</form>
-		</main>
-	</body>
-</html>	
-
-<?php
-
 	}
 	else{
 
