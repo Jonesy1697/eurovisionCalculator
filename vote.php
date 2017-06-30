@@ -1,21 +1,35 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "eurovisioncalc";
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "eurovisioncalc";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
 
-$sql = "SELECT country FROM country WHERE final = 1";
+	$sql = "SELECT country FROM country WHERE final = 1";
 
-$result = mysqli_query($conn, $sql); 
+	$result = mysqli_query($conn, $sql); 
 
+	$user = $_GET['username'];
+	$pass = $_GET['password'];
+				
+	$sql = "SELECT password FROM people WHERE name = '$user'";
+	$password = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
+	$password = mysqli_fetch_row($password);
+	$password = $password[0];
+	
+	$sql = "SELECT voted FROM people WHERE name = '$user'";
+	$voted = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
+	$voted = mysqli_fetch_row($voted);
+	$voted = $voted[0];
+	
+	if ($password === $pass and $voted == 0){
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +37,7 @@ $result = mysqli_query($conn, $sql);
 <head>
 	
 	<title>Eurovision scorer</title>
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 
 <html>
@@ -196,3 +210,64 @@ $result = mysqli_query($conn, $sql);
 	</body>
 	
 </html>
+<?php
+	$sql = "UPDATE people
+		SET voted = 1
+		WHERE name = '$user';";
+	
+		$conn->query($sql);
+	}elseif ($password === $pass and $voted == 1){
+		
+?>
+<!DOCTYPE html>
+<head>
+	
+	<title>Eurovision scorer</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+<html>
+		
+	<header>
+		<h1>Score countries</h1>
+	</header>	
+	
+	<body>
+		<main style = "text-align: center; width: 40%; margin-left: 25%;">		
+			<p>You have already voted</p>
+			<form action="index.html">
+				<input type="submit" value="Back" />
+			</form>
+		</main>
+	</body>
+</html>	
+<?php
+	}
+	else{
+?>
+<!DOCTYPE html>
+
+<head>
+	
+	<title>Eurovision scorer</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+<html>
+		
+	<header>
+		<h1>Score countries</h1>
+	</header>	
+	
+	<body>
+		<main style = "text-align: center; width: 40%; margin-left: 25%;">		
+			<p>Incorrect login</p>
+			<form action="index.html">
+				<input type="submit" value="Back" />
+			</form>
+		</main>
+	</body>
+</html>	
+<?php
+	}
+?>

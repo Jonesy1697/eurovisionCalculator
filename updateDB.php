@@ -28,6 +28,7 @@
 		$conn->query($sql);
 		$count = $count + 1;
 	}
+	
 	$conn->close();
 
 	header("Location: http://localhost/eurovisionCalc/submitted.html");

@@ -1,18 +1,6 @@
 body{
     margin:0px;
-    background:#000;
-}
-
-header {
-	height: 5%;
-	background-color: #fcfcfc;
-	width:100%;
-	padding-top: 0.5%;
-	text-align: center;
-}
-
-body {
-    background-color: #7FFFD4;
+	background-color: #7FFFD4;
 	padding: 0%;
 }
 
@@ -25,6 +13,14 @@ main{
 	padding-top: 2%;
 	padding-bottom: 2%;
 	border-radius: 25px;
+}
+
+header {
+	height: 5%;
+	background-color: #fcfcfc;
+	width:100%;
+	padding-top: 0.5%;
+	text-align: center;
 }
 
 h1{
@@ -53,8 +49,16 @@ input{
 	font-weight: bold;
 }
 
-label{
+button{
 	color: #111;
 	font-size: 100%;
 	font-family: Courier;
+	font-weight: bold;
+}
+
+label{
+	font-size: 100%;
+	font-family: Courier;
+	color: #111;
+	font-weight: bold;
 }
