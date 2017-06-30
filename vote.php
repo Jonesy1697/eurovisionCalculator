@@ -19,6 +19,8 @@
 	$user = $_GET['username'];
 	$pass = $_GET['password'];
 				
+	setcookie("userName",$user,time()+8*3600);
+				
 	$sql = "SELECT password FROM people WHERE name = '$user'";
 	$password = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
 	$password = mysqli_fetch_row($password);
@@ -48,7 +50,7 @@
 	
 	<body>
 	
-		<main>		
+		<main>	
 				
 			<form id="form1" name="form1" method="get" action="updateDB.php">
 			
@@ -211,12 +213,6 @@
 	
 </html>
 <?php
-
-	$sql = "UPDATE people
-		SET voted = 1
-		WHERE name = '$user';";
-	
-		$conn->query($sql);
 	}elseif ($password === $pass and $voted == 1){
 		
 ?>

@@ -7,10 +7,8 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname) or die("Connection failed: " . $conn->connect_error);
-
+	
 	$values = $_GET['select'];
-
-	echo "<br>";
 
 	$count = 0;
 
@@ -20,7 +18,7 @@
 		$points = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
 		$points = mysqli_fetch_row($points);
 		$points = $points[0]; 
-
+	
 		$sql = "UPDATE country
 		SET points = ($points + $scoring[$count])
 		WHERE country = '$a';";
@@ -29,7 +27,15 @@
 		$count = $count + 1;
 	}
 	
-	$conn->close();
+	
+	$user = $_COOKIE["userName"];
 
+	$sql = "UPDATE `people` SET `voted`= 1 WHERE name = '$user';";
+	
+	$conn->query($sql);
+	
+	$conn->close();
+	
 	header("Location: http://localhost/eurovisionCalc/submitted.html");
+	
 ?>
