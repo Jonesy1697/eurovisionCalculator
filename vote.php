@@ -211,6 +211,7 @@
 	
 </html>
 <?php
+
 	$sql = "UPDATE people
 		SET voted = 1
 		WHERE name = '$user';";
@@ -233,7 +234,7 @@
 	</header>	
 	
 	<body>
-		<main style = "text-align: center; width: 40%; margin-left: 25%;">		
+		<main style = "text-align: center;">		
 			<p>You have already voted</p>
 			<form action="index.html">
 				<input type="submit" value="Back" />
@@ -241,10 +242,14 @@
 		</main>
 	</body>
 </html>	
+
 <?php
+
 	}
 	else{
-?>
+
+	?>
+
 <!DOCTYPE html>
 
 <head>
@@ -260,7 +265,7 @@
 	</header>	
 	
 	<body>
-		<main style = "text-align: center; width: 40%; margin-left: 25%;">		
+		<main style = "text-align: center;">		
 			<p>Incorrect login</p>
 			<form action="index.html">
 				<input type="submit" value="Back" />
@@ -268,6 +273,9 @@
 		</main>
 	</body>
 </html>	
+
 <?php
+
 	}
+
 ?>
