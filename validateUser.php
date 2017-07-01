@@ -1,5 +1,4 @@
 <?php
-
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -7,7 +6,6 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname) or die("Connection failed: " . $conn->connect_error);
-			
 
 	$user = $_GET['username'];
 	$pass = $_GET['password1'];
@@ -34,7 +32,7 @@
 	<html>
 		<head>
 			<title>Eurovision scorer</title>
-			<link rel="stylesheet" href="style.css">
+			<link rel="stylesheet" href="styles/style.css">
 		</head>
 		
 		<body>
