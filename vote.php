@@ -59,11 +59,13 @@
 		<main>	
 				
 			<form id="form1" name="form1" method="get" action="updateDB.php">
-			
+			<!--Creates the form which allows each country to vote-->
 				<p>12 Points</p>
 			
 				<select name = "select[ ]">
+				<!--Creates a dropdown menu-->
 					<?php while($row1 = mysqli_fetch_array($result)):;?>
+					<!--Populates the dropdown menu with countries which are in the final-->
 					<option> <?php echo $row1[0];?></option>
 					<?php endwhile?>
 				</select>
