@@ -6,31 +6,37 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
+	
 	// Check connection
-
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-
+		
 	$sql = "SELECT country FROM country WHERE final = 1";
-
+	
+	// Runs query and saves the result
 	$result = mysqli_query($conn, $sql); 
 
+	// Validates entered username and password
 	$user = $_GET['username'];
 	$pass = $_GET['password'];
-				
+	
+	// Stores username as a cookie to later be used again			
 	setcookie("userName",$user,time()+8*3600);
 				
+	// Searchs for the user password
 	$sql = "SELECT password FROM people WHERE name = '$user'";
 	$password = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
 	$password = mysqli_fetch_row($password);
 	$password = $password[0];
 	
+	// Searches wheteher the user has voted yet
 	$sql = "SELECT voted FROM people WHERE name = '$user'";
 	$voted = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
 	$voted = mysqli_fetch_row($voted);
 	$voted = $voted[0];
 	
+	// If the user details are correct, and they have not yet voted
 	if ($password === $pass and $voted == 0){
 ?>
 
@@ -213,11 +219,13 @@
 	
 </html>
 <?php
+	// If the details are correct but they have voted, redirect to the already voted page
 	}elseif ($password === $pass and $voted == 1){
 		
 		header("Location: http://localhost/eurovisionCalc/alreadyVoted.html");
 		
 	}
+	// Otherwise, the login is incorrect
 	else{
 
 	?>

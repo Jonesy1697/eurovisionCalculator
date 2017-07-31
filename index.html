@@ -10,14 +10,20 @@
 			<h1>Log in</h1>
 		</header>
 
+				
 		<main style = "text-align: center;">
 			<form name = "login" action="vote.php" method="get" accept-charset="utf-8">
+			<!--Creates the login form which directs to the validation on vote.php-->
 				<label for = "username">Username </label>
 				<input type = "username" name="username" placeholder="USERNAME" required>
+			
 				<br><br>
+				
 				<label for = "password">Password </label>
 				<input type = "password" name="password" placeholder="PASSWORD" required>
+				
 				<br><br>
+				
 				<input type = "submit" value="Login" style = "color: #111;">
 			</form>	
 			
@@ -26,11 +32,11 @@
 			<p style = "font-size: 90%;">(Password is case sesnsitive)<p>	
 			
 			<form action="newUser.php" style = "float: right;">
+			<!--Creates the button which will direct the user to the new user page-->
 				<input type="submit" value="New User" />
 			</form>
 			
-			<br>
-			
+			<br>			
 		</main>		
 	</body>
 	
