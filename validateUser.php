@@ -20,6 +20,7 @@
 	
 	if ($count == 0){
 	
+		// If the two passwords are equal, then create a new user
 		if ($pass1 === $pass){
 		
 			$sql = "INSERT INTO `people`(`name`, `password`, `voted`) VALUES ('$user', '$pass', 0)";
@@ -53,7 +54,7 @@
 <?php
 			
 		}
-		else{
+		elseif ($pass1 != $pass){
 			
 	?>
 
@@ -61,7 +62,7 @@
 	<html>
 		<head>
 			<title>Eurovision scorer</title>
-			<link rel="stylesheet" href="style.css">
+			<link rel="stylesheet" href="styles/style.css">
 		</head>
 		
 		<body>
