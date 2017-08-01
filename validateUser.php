@@ -54,7 +54,7 @@
 <?php
 			
 		}
-		elseif ($pass1 != $pass){
+		else{
 			
 	?>
 
