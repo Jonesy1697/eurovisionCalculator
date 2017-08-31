@@ -150,72 +150,42 @@ public class newUser extends javax.swing.JFrame {
         String password1 = passwordField1.getText();
         String password2 = passwordField2.getText();
                 
-        if (connection.validateUser(uName)){
-            if(password1.equals(password2)){
-                
-                try {
-                    connection.getUsers();
-                    ResultSet rs = connection.getRS();
-                    rs.moveToInsertRow();
-                    rs.updateString("name", uName);
-                    rs.updateString("password", password1);
-                    rs.updateInt("voted", 0);
-                    rs.insertRow();
+        try {
+            if (connection.validateUser(uName)){
+                if(password1.equals(password2)){
                     
-                    JOptionPane.showMessageDialog(this, ("User created"));
-                    new logIn().setVisible(true);
-                    this.setVisible(false);
-                } catch (SQLException ex) {
-                    Logger.getLogger(newUser.class.getName()).log(Level.SEVERE, null, ex);
+                    try {
+                        connection.getUsers();
+                        ResultSet rs = connection.getRS();
+                        rs.moveToInsertRow();
+                        rs.updateString("name", uName);
+                        rs.updateString("password", password1);
+                        rs.updateInt("voted", 0);
+                        rs.insertRow();
+                        
+                        JOptionPane.showMessageDialog(this, ("User created"));
+                        new logIn().setVisible(true);
+                        this.setVisible(false);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(newUser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, ("Passwords do not match"));
                 }
             }
             else{
-                JOptionPane.showMessageDialog(this, ("Passwords do not match"));
+                JOptionPane.showMessageDialog(this, ("User already exists"));
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, ("User already exists"));
+        } catch (SQLException ex) {
+            Logger.getLogger(newUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         
     }//GEN-LAST:event_SaveBTNActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(logIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(logIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(logIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(logIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new logIn().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SaveBTN;
     private javax.swing.JButton cancelBtn;
