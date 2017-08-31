@@ -155,8 +155,7 @@ public class newUser extends javax.swing.JFrame {
                 if(password1.equals(password2)){
                     
                     try {
-                        connection.getUsers();
-                        ResultSet rs = connection.getRS();
+                        ResultSet rs = connection.getUsers();
                         rs.moveToInsertRow();
                         rs.updateString("name", uName);
                         rs.updateString("password", password1);
