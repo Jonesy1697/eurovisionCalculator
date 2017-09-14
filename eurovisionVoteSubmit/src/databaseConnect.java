@@ -33,19 +33,6 @@ public class databaseConnect {
         
         con = DriverManager.getConnection(host, uName, uPass);
     }
-    
-    public boolean checkUser(String ID, String password) throws SQLException{
-       
-        ID = "\"" + ID + "\"";
-        
-        stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        String SQL = "SELECT password FROM people where name = " + ID;
-        rs = stmt.executeQuery(SQL);
-                        
-        rs.first();        
-        return password.equals(rs.getString("password"));
-        
-    }
 
    public boolean validateUser(String ID) throws SQLException{
         
@@ -88,7 +75,9 @@ public class databaseConnect {
         stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String SQL = "SELECT * FROM people";
         rs = stmt.executeQuery(SQL);
+        //This will access the table
 
+        
     }
     
      public ResultSet getRS() {

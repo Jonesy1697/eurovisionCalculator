@@ -1,9 +1,3 @@
-
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,19 +10,10 @@ import javax.swing.JOptionPane;
  */
 public class logIn extends javax.swing.JFrame {
 
-    databaseConnect connection;
-    
     /**
      * Creates new form logIn
      */
     public logIn() {
-        
-        try {
-            connection = new databaseConnect();
-        } catch (SQLException ex) {
-            Logger.getLogger(logIn.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         initComponents();
     }
 
@@ -65,11 +50,6 @@ public class logIn extends javax.swing.JFrame {
         passswordLabel.setText("Password");
 
         loginBtn.setText("Login");
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
-            }
-        });
 
         newUserBtn.setText("newUser");
         newUserBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -129,25 +109,6 @@ public class logIn extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_newUserBtnActionPerformed
-
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        
-        try {       
-                       
-            if(connection.checkUser(uNameField.getText(),passwordField.getText())){
-                
-                new vote().setVisible(true);
-                this.setVisible(false);
-            }
-            else{
-                
-                JOptionPane.showMessageDialog(this, ("Password and user do not match"));
-            
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(logIn.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_loginBtnActionPerformed
 
     /**
      * @param args the command line arguments
