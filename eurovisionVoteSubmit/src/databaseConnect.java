@@ -82,23 +82,17 @@ public class databaseConnect {
         rs.close();
 
     }
-    
-    public ResultSet getCountries() throws SQLException{
-    
-        stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        String SQL = "SELECT * FROM country where final = 1";
-        rs = stmt.executeQuery(SQL); 
-        
-        return rs;
-        
-    }
 
-    public ResultSet getUsers() throws SQLException {
+    public void getUsers() throws SQLException {
 
         stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String SQL = "SELECT * FROM people";
         rs = stmt.executeQuery(SQL);
-        
+
+    }
+    
+     public ResultSet getRS() {
+
         return rs;
 
     }
