@@ -18,16 +18,13 @@
 					<th>Points</th>
 				</tr>
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "eurovisioncalc";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname) or die("Connection failed: " . $conn->connect_error);
-	
+	// Create connection	
+	include 'db_connection.php';
+ 
+	$con = OpenCon();
+	  
 	$sql = "SELECT * FROM `country` WHERE `final` = 1 ORDER BY `points` DESC;";
-	$results = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
+	$results = mysqli_query($con, $sql) or die("Connection failed" . $con->connect_error);
 	
 	foreach ($results as $a){	
 	

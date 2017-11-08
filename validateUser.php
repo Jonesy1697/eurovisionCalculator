@@ -1,22 +1,20 @@
+<!DOCTYPE html>
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "eurovisioncalc";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname) or die("Connection failed: " . $conn->connect_error);
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+	include 'db_connection.php';
+ 
+	$con = OpenCon();
 
 	$user = $_GET['username'];
 	$pass = $_GET['password1'];
 	$pass1 = $_GET['password2'];
 
-	$sql = "SELECT COUNT(name)
-			FROM people
-			WHERE name = '$user';";
-	$count = mysqli_query($conn, $sql) or die("Connection failed" . $conn->connect_error);
-	$count = mysqli_fetch_row($count);
+	$sql = "SELECT COUNT(name) FROM people WHERE name = '$user';";
+	$rs = mysqli_query($con, $sql);		
+	$count = mysqli_fetch_row($rs);
 	$count = $count[0]; 
+	
 	
 	if ($count == 0){
 	
@@ -25,11 +23,9 @@
 		
 			$sql = "INSERT INTO `people`(`name`, `password`, `voted`) VALUES ('$user', '$pass', 0)";
 				
-			$conn->query($sql);
+			$con->query($sql);
 			
 ?>
-
-<!DOCTYPE html>
 	<html>
 		<head>
 			<title>Eurovision scorer</title>
@@ -54,44 +50,44 @@
 <?php
 			
 		}
-		else{
-			
-	?>
-
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Eurovision scorer</title>
-			<link rel="stylesheet" href="styles/style.css">
-		</head>
-		
-		<body>
-			<header>
-				<h1>Log in</h1>
+			else{
 				
-			</header>
+		?>
 
-			<main style = "text-align: center;">
-				<form name = "newUser" action="validateUser.php" method="get" accept-charset="utf-8">
-					<label for = "username">Username </label>
-					<input type = "username" name="username" placeholder="USERNAME" required>
-					<br><br>
-					<label for = "password1">Password </label>
-					<input type = "password" name="password1" placeholder="PASSWORD" required>
-					<br><br>
-					<label for = "password2">Password </label>
-					<input type = "password" name="password2" placeholder="PASSWORD" required>
-					<br><br>
-					<input type = "submit" value="Create" style = "color: #111;">
-					<p>Password did not match!</p>
-				</form>				
-			</main>		
-		</body>
-	</html>
-
-	<?php
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<title>Eurovision scorer</title>
+				<link rel="stylesheet" href="styles/style.css">
+			</head>
 			
-		}
+			<body>
+				<header>
+					<h1>Log in</h1>
+					
+				</header>
+
+				<main style = "text-align: center;">
+					<form name = "newUser" action="validateUser.html" method="get" accept-charset="utf-8">
+						<label for = "username">Username </label>
+						<input type = "username" name="username" placeholder="USERNAME" required>
+						<br><br>
+						<label for = "password1">Password </label>
+						<input type = "password" name="password1" placeholder="PASSWORD" required>
+						<br><br>
+						<label for = "password2">Password </label>
+						<input type = "password" name="password2" placeholder="PASSWORD" required>
+						<br><br>
+						<input type = "submit" value="Create" style = "color: #111;">
+						<p>Password did not match!</p>
+					</form>				
+				</main>		
+			</body>
+		</html>
+
+		<?php
+				
+			}
 	}
 	else{
 	
@@ -111,7 +107,7 @@
 			</header>
 
 			<main style = "text-align: center;">
-				<form name = "newUser" action="validateUser.php" method="get" accept-charset="utf-8">
+				<form name = "newUser" action="validateUser.html" method="get" accept-charset="utf-8">
 					<label for = "username">Username </label>
 					<input type = "username" name="username" placeholder="USERNAME" required>
 					<br><br>
